@@ -1,0 +1,527 @@
+'use client';
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
+  // 애니메이션 variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const scaleOnHover = {
+    rest: { scale: 1, y: 0 },
+    hover: { 
+      scale: 1.05, 
+      y: -8,
+      transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 relative overflow-hidden">
+      {/* CSS 스타일 */}
+      <style jsx global>{`
+        .gradient-text {
+          background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        .glass-card {
+          background: rgba(30, 41, 59, 0.4);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        @keyframes float {
+          0%, 100% { 
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.3;
+          }
+          50% { 
+            transform: translateY(-30px) rotate(180deg);
+            opacity: 0.5;
+          }
+        }
+        
+        .floating-bg {
+          animation: float 8s ease-in-out infinite;
+        }
+      `}</style>
+
+      {/* 패럴랙스 배경 */}
+      <motion.div 
+        className="fixed inset-0 pointer-events-none overflow-hidden"
+        style={{ y: backgroundY }}
+      >
+        <div className="floating-bg absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl"></div>
+        <div className="floating-bg absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full filter blur-3xl" style={{ animationDelay: '2s' }}></div>
+        <div className="floating-bg absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2" style={{ animationDelay: '4s' }}></div>
+        <div className="floating-bg absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full filter blur-3xl" style={{ animationDelay: '1s' }}></div>
+        <div className="floating-bg absolute bottom-1/3 left-1/4 w-56 h-56 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full filter blur-3xl" style={{ animationDelay: '3s' }}></div>
+      </motion.div>
+
+      {/* Header */}
+      <motion.header 
+        className="relative z-20 px-6 py-6"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <nav className="max-w-7xl mx-auto flex items-center justify-between">
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="relative">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-xl">👁</span>
+              </div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl blur opacity-30"></div>
+            </div>
+            <div>
+              <span className="text-white text-2xl font-bold">눈칫</span>
+              <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+            </div>
+          </motion.div>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            {['주요 기능', '타겟 사용자', '다운로드'].map((item, index) => (
+              <motion.a
+                key={item}
+                href={`#${['features', 'target', 'download'][index]}`}
+                className="text-slate-300 hover:text-white transition-colors duration-300"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                whileHover={{ y: -2 }}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </div>
+          
+          <div className="flex items-center space-x-4">
+            <motion.button 
+              className="hidden md:block text-slate-300 hover:text-white transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Login
+            </motion.button>
+            <motion.button 
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              App Store
+            </motion.button>
+          </div>
+        </nav>
+      </motion.header>
+
+      {/* Hero Section */}
+      <motion.main 
+        className="relative z-10 px-6 py-20"
+        style={{ y: heroY }}
+      >
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.div 
+            className="mb-12"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+              variants={fadeInUp}
+            >
+              시장은 잠들지 않습니다.<br />
+              <span className="gradient-text">당신의 결정적인 순간도 마찬가지입니다.</span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+              variants={fadeInUp}
+            >
+              수없이 쏟아지는 정보, 순식간에 지나가는 급등락.<br />
+              혼란스러운 암호화폐 시장의 노이즈 속에서 길을 잃고 계신가요?
+            </motion.p>
+            
+            <motion.div 
+              className="text-2xl md:text-3xl font-semibold text-white mb-12"
+              variants={fadeInUp}
+            >
+              이제 <span className="gradient-text font-bold">눈칫(Noonchit)</span>과 함께하세요.
+            </motion.div>
+          </motion.div>
+          
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <motion.p 
+              className="text-lg md:text-xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              '눈칫'은 단순한 차트 앱이 아닙니다. 당신의 곁에서 24시간 시장을 감시하고, <br />
+              의미 있는 시그널을 가장 먼저 포착해내는 <span className="text-blue-400 font-semibold">강력한 데이터 트레이딩 파트너</span>입니다.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.button 
+                className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-10 py-4 rounded-xl text-lg font-bold shadow-2xl"
+                variants={scaleOnHover}
+                initial="rest"
+                whileHover="hover"
+                whileTap={{ scale: 0.95 }}
+              >
+                지금 바로 다운로드
+              </motion.button>
+              <motion.button 
+                className="glass-card text-white px-10 py-4 rounded-xl text-lg font-semibold"
+                variants={scaleOnHover}
+                initial="rest"
+                whileHover="hover"
+                whileTap={{ scale: 0.95 }}
+              >
+                데모 체험하기
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.main>
+
+      {/* Features Section */}
+      <motion.section 
+        id="features" 
+        className="relative z-10 px-6 py-32"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              주요 기능
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              시장의 '눈치'를 보는 것을 넘어, 시장을 이끌어 가세요
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="grid lg:grid-cols-2 gap-8 mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {[
+              {
+                icon: "🐋",
+                gradient: "from-blue-500 to-cyan-500",
+                title: "고래의 움직임을 실시간으로 추적하세요",
+                description: "시장의 큰손들이 어디로 움직이는지 가장 먼저 파악하여, 거대한 흐름에 올라타세요. '눈칫'의 정교한 필터는 수많은 거래 속에서 유의미한 고래의 매매 내역만을 선별하여 보여줍니다."
+              },
+              {
+                icon: "⚡",
+                gradient: "from-purple-500 to-pink-500",
+                title: "급등락과 거래량 폭증을 놓치지 마세요",
+                description: "시장의 관심이 집중되는 순간, 자금이 몰리는 지점을 즉시 포착하여 결정적인 매매 타이밍을 잡으세요. 설정된 시간 동안 가장 폭발적인 변화를 보이는 종목을 실시간으로 브리핑합니다."
+              },
+              {
+                icon: "📊",
+                gradient: "from-emerald-500 to-teal-500",
+                title: "복잡한 데이터를 직관적으로 파악하세요",
+                description: "어려운 데이터 분석은 '눈칫'에게 맡기세요. 가장 중요한 정보(거래량, 변동률, 체결 강도 등)를 직관적인 UI로 표현하여, 당신이 빠르고 정확한 판단을 내릴 수 있도록 돕습니다."
+              },
+              {
+                icon: "🚀",
+                gradient: "from-orange-500 to-red-500",
+                title: "최고의 속도와 안정성을 경험하세요",
+                description: "아무리 거친 시장이라도 멈추거나 버벅대지 않습니다. 최적화된 데이터 처리 기술로 설계되어, 가장 중요한 순간에 가장 빠르고 안정적인 성능을 약속합니다."
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                className="glass-card rounded-2xl p-8 transition-all duration-500"
+                variants={fadeInUp}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  boxShadow: "0 30px 60px rgba(59, 130, 246, 0.3)",
+                  borderColor: "rgba(148, 163, 184, 0.4)"
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6`}>
+                  <span className="text-white text-3xl">{feature.icon}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
+                <p className="text-slate-300 leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Target Users Section */}
+      <motion.section 
+        id="target" 
+        className="relative z-10 px-6 py-32"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              이런 분들을 위해 태어났습니다
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {[
+              {
+                icon: "💼",
+                gradient: "from-blue-500 to-purple-500",
+                title: "프로 트레이더",
+                description: "매 순간 시장의 맥박을 직접 느끼고 싶은 전문 투자자들을 위한 강력한 도구"
+              },
+              {
+                icon: "⚖️",
+                gradient: "from-purple-500 to-pink-500",
+                title: "스캘퍼 & 단타 투자자",
+                description: "데이터에 기반한 냉철한 판단을 원하는 빠른 매매 전문가들을 위한 솔루션"
+              },
+              {
+                icon: "🔥",
+                gradient: "from-pink-500 to-orange-500",
+                title: "열정적인 투자자",
+                description: "자신만의 트레이딩 전략을 한 단계 발전시키고 싶은 투자자들을 위한 파트너"
+              }
+            ].map((target, index) => (
+              <motion.div
+                key={index}
+                className="text-center glass-card rounded-2xl p-8 transition-all duration-500"
+                variants={fadeInUp}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                  boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)"
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={`w-20 h-20 bg-gradient-to-r ${target.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
+                  <span className="text-white text-4xl">{target.icon}</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{target.title}</h3>
+                <p className="text-slate-300">{target.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* CTA Section */}
+      <motion.section 
+        id="download" 
+        className="relative z-10 px-6 py-32"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="glass-card rounded-3xl p-12"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              시장의 '눈치'를 보는 것을 넘어,<br />
+              <span className="gradient-text">시장을 이끌어 가세요</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-xl text-slate-300 mb-12 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              지금 바로 '눈칫'을 다운로드하고, 가장 강력한 데이터 파트너와 함께<br />
+              새로운 차원의 투자를 경험하세요.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <motion.button 
+                className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-12 py-5 rounded-xl text-xl font-bold shadow-2xl"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  boxShadow: "0 25px 50px rgba(59, 130, 246, 0.4)" 
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                📱 App Store에서 다운로드
+              </motion.button>
+              <motion.button 
+                className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-12 py-5 rounded-xl text-xl font-bold shadow-2xl"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  boxShadow: "0 25px 50px rgba(34, 197, 94, 0.4)" 
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                🤖 Google Play에서 다운로드
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Footer */}
+      <motion.footer 
+        className="relative z-10 px-6 py-16 border-t border-slate-800"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="grid md:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">👁</span>
+                </div>
+                <div>
+                  <span className="text-white text-xl font-bold">눈칫</span>
+                  <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+                </div>
+              </div>
+              <p className="text-slate-400 leading-relaxed">
+                24시간 시장을 감시하는<br />
+                강력한 데이터 트레이딩 파트너
+              </p>
+            </motion.div>
+            
+            {[
+              {
+                title: "서비스",
+                links: ["실시간 고래 추적", "급등락 알림", "거래량 분석", "API 서비스"]
+              },
+              {
+                title: "지원",
+                links: ["사용 가이드", "고객 지원", "FAQ", "개발자 문서"]
+              },
+              {
+                title: "커뮤니티",
+                links: ["트위터", "텔레그램", "디스코드", "유튜브"]
+              }
+            ].map((section, index) => (
+              <motion.div key={section.title} variants={fadeInUp}>
+                <h4 className="text-white font-semibold mb-4">{section.title}</h4>
+                <ul className="space-y-3 text-slate-400">
+                  {section.links.map((link) => (
+                    <motion.li key={link} whileHover={{ x: 5 }}>
+                      <a href="#" className="hover:text-white transition-colors">{link}</a>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <motion.div 
+            className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p>&copy; 2024 Noonchit. All rights reserved.</p>
+          </motion.div>
+        </div>
+      </motion.footer>
+    </div>
+  );
+}

@@ -1,0 +1,1681 @@
+\n\n// ====== src/app/privacy/page.tsx ======\n
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+
+export default function PrivacyPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950">
+      {/* Header */}
+      <header className="relative z-20 px-6 py-6 border-b border-slate-800">
+        <nav className="max-w-4xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 relative">
+              <Image 
+                src={icon} 
+                alt="눈칫 로고" 
+                width={40} 
+                height={40}
+                className="rounded-xl"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) {
+                    target.style.display = 'none';
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center" style={{display: 'none'}}>
+                <span className="text-white font-bold text-xl">👁</span>
+              </div>
+            </div>
+            <div>
+              <span className="text-white text-2xl font-bold">눈칫</span>
+              <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+            </div>
+          </Link>
+          
+          <Link 
+            href="/"
+            className="text-slate-300 hover:text-white transition-colors duration-300"
+          >
+            홈으로 돌아가기
+          </Link>
+        </nav>
+      </header>
+
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 md:p-12">
+          <h1 className="text-4xl font-bold text-white mb-8 text-center">
+            개인정보 처리방침
+          </h1>
+          
+          <div className="prose prose-invert prose-lg max-w-none">
+            <div className="text-slate-300 leading-relaxed space-y-8">
+              
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 1조 개인정보의 처리 목적</h2>
+                <p className="mb-4">&apos;눈칫(Noonchit)&apos;은 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>회원 가입 의사 확인 및 본인 식별·인증</li>
+                  <li>회원자격 유지 및 관리</li>
+                  <li>암호화폐 시장 분석 서비스 제공</li>
+                  <li>실시간 시장 알림 및 맞춤형 정보 제공</li>
+                  <li>유료 서비스 이용에 따른 요금 정산</li>
+                  <li>서비스 개선을 위한 통계 분석</li>
+                  <li>고객 지원 및 문의 응답</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 2조 개인정보의 처리 및 보유 기간</h2>
+                <p className="mb-4">&apos;눈칫&apos;은 정보주체로부터 개인정보를 수집할 때 동의받은 개인정보 보유·이용기간 또는 법령에 따른 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+                <p className="mb-4">구체적인 개인정보 처리 및 보유 기간은 다음과 같습니다:</p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li><span className="font-semibold text-blue-400">회원 가입 및 관리:</span> 서비스 이용계약 또는 회원가입 해지 시까지, 다만 채권·채무관계 잔존 시에는 해당 채권·채무관계 정산 시까지</li>
+                  <li><span className="font-semibold text-blue-400">전자상거래 기록:</span> 계약·청약철회, 대금결제, 서비스 공급기록 - 5년</li>
+                  <li><span className="font-semibold text-blue-400">소비자 불만 처리:</span> 불만 또는 분쟁처리에 관한 기록 - 3년</li>
+                  <li><span className="font-semibold text-blue-400">서비스 이용 기록:</span> 접속 로그, 접속 IP 정보, 서비스 이용기록 - 3개월</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 3조 정보주체의 권리·의무 및 그 행사방법</h2>
+                <p className="mb-4">정보주체는 &apos;눈칫&apos;에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다:</p>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li><span className="font-semibold text-green-400">개인정보 열람 요구</span></li>
+                  <li><span className="font-semibold text-green-400">오류 등이 있을 경우 정정 요구</span></li>
+                  <li><span className="font-semibold text-green-400">삭제 요구</span></li>
+                  <li><span className="font-semibold text-green-400">처리정지 요구</span></li>
+                </ol>
+                <p className="mt-4 text-slate-400">위 권리 행사는 개인정보보호법 시행령 제41조에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며, &apos;눈칫&apos;은 이에 대해 지체 없이 조치하겠습니다.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 4조 처리하는 개인정보의 항목</h2>
+                <p className="mb-4">&apos;눈칫&apos;은 다음의 개인정보 항목을 처리하고 있습니다:</p>
+                <div className="bg-slate-800/50 rounded-lg p-6 mb-4">
+                  <h3 className="text-lg font-semibold text-purple-400 mb-3">필수항목</h3>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>이메일 주소</li>
+                    <li>소셜 로그인 시: 소셜 계정 고유 식별자</li>
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 rounded-lg p-6 mb-4">
+                  <h3 className="text-lg font-semibold text-yellow-400 mb-3">자동 수집 항목</h3>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>서비스 이용 기록</li>
+                    <li>접속 로그</li>
+                    <li>쿠키, 접속 IP 정보</li>
+                    <li>기기 정보 (기기 모델명, OS 버전 등)</li>
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-pink-400 mb-3">결제 관련</h3>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>결제 승인번호</li>
+                    <li>결제 수단 정보 (카드사명, 결제일시 등)</li>
+                    <li>구매 내역</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 5조 개인정보의 파기</h2>
+                <p className="mb-4">&apos;눈칫&apos;은 원칙적으로 개인정보 처리목적이 달성된 경우에는 지체 없이 해당 개인정보를 파기합니다. 파기의 절차, 기한 및 방법은 다음과 같습니다:</p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-blue-400 mb-2">파기절차</h3>
+                    <p>이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다. 이때, DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold text-purple-400 mb-2">파기기한</h3>
+                    <p>이용자의 개인정보는 개인정보의 보유기간이 경과된 경우에는 보유기간의 종료일로부터 30일 이내에, 개인정보의 처리 목적 달성, 해당 서비스의 폐지, 사업의 종료 등 그 개인정보가 불필요하게 되었을 때에는 개인정보의 처리가 불필요한 것으로 인정되는 날로부터 30일 이내에 그 개인정보를 파기합니다.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold text-pink-400 mb-2">파기방법</h3>
+                    <ul className="list-disc list-inside space-y-1 ml-4">
+                      <li>전자적 파일 형태의 정보: 기록을 재생할 수 없는 기술적 방법 사용</li>
+                      <li>종이에 출력된 개인정보: 분쇄기로 분쇄하거나 소각</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 6조 개인정보의 안전성 확보 조치</h2>
+                <p className="mb-4">&apos;눈칫&apos;은 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다:</p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-slate-800/30 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-green-400 mb-3">관리적 조치</h3>
+                    <ul className="list-disc list-inside space-y-2 text-sm">
+                      <li>개인정보 취급 직원의 최소화 및 교육</li>
+                      <li>개인정보 보호책임자의 지정 및 운영</li>
+                      <li>정기적인 자체 감사 실시</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-slate-800/30 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-blue-400 mb-3">기술적 조치</h3>
+                    <ul className="list-disc list-inside space-y-2 text-sm">
+                      <li>개인정보처리시스템 등의 접근권한 관리</li>
+                      <li>접근통제시스템 설치 및 운영</li>
+                      <li>개인정보의 암호화</li>
+                      <li>보안프로그램 설치 및 주기적 갱신</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-slate-800/30 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-purple-400 mb-3">물리적 조치</h3>
+                    <ul className="list-disc list-inside space-y-2 text-sm">
+                      <li>전산실, 자료보관실 등의 접근통제</li>
+                      <li>개인정보가 포함된 서류, 보조저장매체 등의 잠금장치 사용</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-slate-800/30 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-pink-400 mb-3">네트워크 보안</h3>
+                    <ul className="list-disc list-inside space-y-2 text-sm">
+                      <li>해킹 등에 대비한 기술적 대책</li>
+                      <li>개인정보 전송 시 암호화</li>
+                      <li>침입차단시스템을 이용한 접근통제</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 7조 개인정보 보호책임자</h2>
+                <p className="mb-6">&apos;눈칫&apos;은 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+                
+                <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-blue-400 mb-4">▶ 개인정보 보호책임자</h3>
+                  <div className="space-y-2">
+                    <p><span className="font-semibold text-white">성명:</span> hd cho</p>
+                    <p><span className="font-semibold text-white">직책:</span> 개인정보 보호책임자</p>
+                    <p><span className="font-semibold text-white">연락처:</span> hdcho@yandex.com</p>
+                    <p><span className="font-semibold text-white">응답시간:</span> 평일 09:00 ~ 18:00 (토·일·공휴일 제외)</p>
+                  </div>
+                </div>
+                
+                <p className="mt-6 text-slate-400">정보주체께서는 &apos;눈칫&apos;의 서비스를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의하실 수 있습니다. &apos;눈칫&apos;은 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 8조 개인정보 처리방침 변경</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>이 개인정보처리방침은 <span className="font-semibold text-yellow-400">2025년 7월 7일</span>부터 적용됩니다.</li>
+                  <li>법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</li>
+                  <li>이전의 개인정보 처리방침은 아래에서 확인하실 수 있습니다.</li>
+                </ol>
+              </section>
+
+              <section className="border-t border-slate-600 pt-8">
+                <h2 className="text-2xl font-semibold text-white mb-4">제 9조 기타</h2>
+                <div className="space-y-4">
+                  <p><span className="font-semibold text-blue-400">개인정보 침해신고센터:</span> (privacy.go.kr / 국번없이 182)</p>
+                  <p><span className="font-semibold text-purple-400">대검찰청 사이버범죄수사단:</span> (www.spo.go.kr / 국번없이 1301)</p>
+                  <p><span className="font-semibold text-pink-400">경찰청 사이버안전국:</span> (cyberbureau.police.go.kr / 국번없이 182)</p>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}\n\n// ====== src/app/terms/page.tsx ======\n
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+
+export default function TermsPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950">
+      {/* Header */}
+      <header className="relative z-20 px-6 py-6 border-b border-slate-800">
+        <nav className="max-w-4xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 relative">
+              <Image
+                src={icon}
+                alt="눈칫 로고"
+                width={40}
+                height={40}
+                className="rounded-xl"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) {
+                    target.style.display = 'none';
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center" style={{display: 'none'}}>
+                <span className="text-white font-bold text-xl">👁</span>
+              </div>
+            </div>
+            <div>
+              <span className="text-white text-2xl font-bold">눈칫</span>
+              <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+            </div>
+          </Link>
+          
+          <Link
+            href="/"
+            className="text-slate-300 hover:text-white transition-colors duration-300"
+          >
+            홈으로 돌아가기
+          </Link>
+        </nav>
+      </header>
+
+      {/* Content */}
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 md:p-12">
+          <h1 className="text-4xl font-bold text-white mb-8 text-center">
+            서비스 이용약관
+          </h1>
+          
+          <div className="prose prose-invert prose-lg max-w-none">
+            <div className="text-slate-300 leading-relaxed space-y-8">
+              
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 1조 목적</h2>
+                <p>본 약관은 눈칫(Noonchit)(이하 &quot;회사&quot;라 함)에서 제공하는 눈칫 및 눈칫 관련 제반 서비스(이하 &quot;서비스&quot;라 함)를 이용함에 있어 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정하는 것을 목적으로 합니다.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 2조 약관의 효력 및 변경</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>본 약관은 서비스를 이용하고자 본 약관에 동의한 모든 회원에 대하여 그 효력을 발생합니다.</li>
+                  <li>본 약관의 내용은 회원(서비스) 가입 시 게재되거나 공지된 내용에 회원이 동의함으로써 그 효력이 발생합니다.</li>
+                  <li>회사는 약관이 변경되는 경우에는 적용 일자 및 개정 내용, 개정 사유 등을 명시하여 적용일로부터 7일 전에 홈페이지 또는 전자메일(E-mail) 또는 서비스 내의 공지 등을 통해 공지합니다.</li>
+                  <li>회원은 변경된 약관에 동의하지 않을 경우 회원 탈퇴를 요청할 수 있으며, 변경된 약관의 공지 이후 효력 발생일까지 거부의 의사 표시를 하지 아니한 경우는 변경된 약관에 동의한 것으로 간주됩니다.</li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 3조 약관의 해석과 예외 준칙</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>회사는 제공하는 개별 서비스에 대해서 별도의 이용약관 및 정책을 둘 수 있으며, 해당 내용이 본 약관과 상충할 경우 개별 서비스의 이용약관을 우선하여 적용합니다.</li>
+                  <li>본 약관에 명시되지 않은 사항은 전자거래기본법, 전자상거래 등에서의 소비자 보호에 관한 법률, 약관의 규제에 관한 법률, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 기타 관련법령의 규정에 따릅니다.</li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 4조 이용 계약의 성립</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>서비스 가입 신청 시 본 약관을 읽고 &quot;동의함&quot; 버튼을 클릭하면 본 약관에 동의하는 것으로 간주됩니다.</li>
+                  <li>이용약관은 서비스 이용희망자의 이용약관 동의 후 이용 신청에 대하여 회사가 승낙함으로써 성립됩니다.</li>
+                  <li>가입신청자는 제 1항의 이용 신청 시 본인의 실명 및 실제 정보를 기재하여야 합니다. 내용이 사실과 다를 경우(차명, 비 실명, 허위정보 등)와 타인의 정보를 도용한 것으로 의심되는 경우 사실 여부를 확인하기 위해 재 증명을 요구할 수 있으며 상이한 사실이 명백하게 확인되는 경우, 본 약관에 의한 회원의 권리를 주장할 수 없고, 회사는 회원에게 환급 없이 회원의 권한을 삭제하며 서비스의 전면적인 이용을 거부할 수 있고, 이로 인해 발생하는 모든 불이익은 회사가 책임지지 않습니다.</li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 5조 회원에 대한 통지</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>회사가 회원에 대한 통지를 하는 경우 이 약관에 별도의 규정이 없는 한 이메일, SMS, 앱푸시 알림 등으로 할 수 있습니다.</li>
+                  <li>회원 전체에 대한 통지의 경우 회사는 7일 이상 서비스 초기화면에 게시하거나 공지사항 게시판에 게시함으로써 제1항의 통지에 갈음할 수 있습니다. 다만, 회원 본인의 거래에 관하여 중대한 영향을 미치는 사항에 대하여는 개별 통지합니다.</li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 6조 이용 계약 체결</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>이용계약은 서비스를 이용하려는 자(이하 &quot;가입신청자&quot;)가 &quot;눈칫&quot; 서비스 및 제반 서비스에서 제공하는 약관에 동의한 다음 회원가입 신청을 하고 회사가 이러한 신청에 대하여 승낙함으로써 체결됩니다. 필요한 경우 회사는 본인 확인 기관을 통한 실명확인 및 본인인증을 요청할 수 있습니다.</li>
+                  <li>카카오, 구글, 애플 등 외부 서비스와의 연동을 통해 회원가입 신청을 한 경우, 가입신청자가 이 약관과 개인정보처리방침, 서비스 제공을 위해 회사가 회원의 외부 서비스 계정 정보 접근 및 활용에 동의하고 회사가 이러한 신청에 승낙함으로써 이용계약이 체결됩니다.</li>
+                  <li>회사는 업무 수행상 또는 기술상 지장이 있을 경우 일정시간 가입승인을 유보할 수 있습니다.</li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 12조 회원의 의무</h2>
+                <p className="mb-4">회원은 다음 각 호에 해당하는 행위를 해서는 안됩니다:</p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>이용 신청 또는 회원정보 변경 시 허위내용 등록하는 경우</li>
+                  <li>타인의 정보를 도용하는 경우</li>
+                  <li>회사의 운영자, 임직원, 회사를 사칭하는 경우</li>
+                  <li>다른 사용자의 정보를 부정하게 취득하는 행위를 하는 경우</li>
+                  <li>외설, 폭력적인 메시지, 기타 공서양속에 반하는 정보를 공개 또는 게시하는 행위를 하는 경우</li>
+                  <li>허위사실 유포 및 사기 행위를 하는 경우</li>
+                  <li>회사에서 제공하는 암호화폐 분석 정보를 참고하여 투자를 하는 경우, 회원에게 발생하는 손실에 대해서는 회사가 책임지지 않습니다.</li>
+                  <li>위험성이 높은 가상화폐 시장 특성상, 안전한 투자를 지향하시기 바랍니다.</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 20조 책임제한</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>회사는 회원의 약관, 서비스 이용 방법 및 이용 기준을 준수하지 않는 등 회원의 귀책 사유로 인한 서비스 이용의 장애에 대하여는 책임을 지지 않습니다.</li>
+                  <li>회사는 서비스를 통하여 게재한 정보, 자료, 사실의 신뢰도, 정확성 등의 내용에 관하여는 보증하지 않습니다.</li>
+                  <li>회사는 무료로 제공되는 서비스 이용과 관련하여 관련법에 특별한 규정이 없는 한 책임을 지지 않습니다.</li>
+                  <li>회사는 천재지변, 전쟁, 기간통신사업자의 서비스 중지, 해결이 곤란한 기술적 결함 기타 불가항력으로 인하여 서비스를 제공할 수 없는 경우 책임이 면제됩니다.</li>
+                  <li><span className="text-yellow-400 font-semibold">회사에서 제공하는 암호화폐 시장 분석 및 예측 정보를 참고하여 투자를 하는 경우, 회원에게 발생하는 손실에 대해서는 회사가 책임지지 않습니다.</span></li>
+                  <li><span className="text-yellow-400 font-semibold">암호화폐 투자는 높은 위험성을 수반하므로, 회원은 신중한 투자 결정을 하시기 바랍니다.</span></li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 28조 약관 외 준칙</h2>
+                <p>본 약관에서 정하지 아니한 사항과 본 약관의 해석에 관하여는 「약관의 규제에 관한 법률」,「정보통신망이용촉진 및 정보보호 등에 관한 법률」,「콘텐츠산업진흥법」 등 관련 법령에 따릅니다.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 29조 관할 법원</h2>
+                <p>서비스 이용으로 발생한 분쟁에 대해 소송이 제기될 경우 회사의 본사 소재지를 관할하는 법원을 전속 관할법원으로 합니다.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-white mb-4">제 30조 재판권 및 준거법</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>이 약관 및 서비스 이용과 관련하여 회사와 회원 간에 제기된 법적 분쟁은 대한민국 법령에 의하여 규율, 해석 및 집행됩니다.</li>
+                  <li>이 약관 및 서비스 이용과 관련하여 회사와 회원 간에 발생한 분쟁에 대해서는 각 당사자가 선의에 기초한 협의를 통해 해결책을 모색하되, 이러한 협의로 분쟁이 해결되지 아니할 경우, 민사소송법에 의한 관할법원에서 소송으로 해결합니다.</li>
+                </ol>
+              </section>
+
+              <section className="border-t border-slate-600 pt-8">
+                <h2 className="text-2xl font-semibold text-white mb-4">부칙</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>본 약관은 2025년 7월 7일부터 적용됩니다.</li>
+                  <li>종전의 약관은 본 약간으로 대체합니다.</li>
+                </ol>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}\n\n// ====== src/app/layout.tsx ======\n
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+\n\n// ====== src/app/page.tsx ======\n
+'use client';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import HeroSection from '@/components/sections/HeroSection';
+import ProblemsSection from '@/components/sections/ProblemsSection';
+import SolutionSection from '@/components/sections/SolutionSection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
+import TargetSection from '@/components/sections/TargetSection';
+import CTASection from '@/components/sections/CTASection';
+
+export default function NoonchitLanding() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // 스크롤 기반 변환들
+  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.9]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.3]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  
+  // 문제점들이 모이는 효과
+  const problemScale = useTransform(scrollYProgress, [0.15, 0.25], [1, 0]);
+  const problemOpacity = useTransform(scrollYProgress, [0.15, 0.25], [1, 0]);
+  const solutionScale = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const solutionOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  
+  // 대시보드 등장
+  const dashboardY = useTransform(scrollYProgress, [0.5, 0.65], ['100%', '0%']);
+  const dashboardScale = useTransform(scrollYProgress, [0.5, 0.65], [0.8, 1]);
+  
+  // 배경 색상 전환
+  const bgColor = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.6, 1],
+    ["#0f172a", "#1e1b4b", "#312e81", "#0f172a"]
+  );
+
+  return (
+    <div ref={containerRef} className="relative">
+      {/* 전역 스타일 */}
+      <style jsx global>{`
+        .gradient-text {
+          background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        .glass-effect {
+          background: rgba(30, 41, 59, 0.4);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        @keyframes float {
+          0%, 100% { 
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.3;
+          }
+          50% { 
+            transform: translateY(-30px) rotate(180deg);
+            opacity: 0.5;
+          }
+        }
+        
+        .floating-bg {
+          animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-crypto {
+          0%, 100% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .crypto-float {
+          animation: pulse-crypto 3s ease-in-out infinite;
+        }
+        
+        .magnetic-pull {
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
+
+      {/* 동적 배경 */}
+      <motion.div 
+        className="fixed inset-0 -z-10"
+        style={{ backgroundColor: bgColor }}
+      />
+
+      {/* 패럴랙스 배경 */}
+      <motion.div 
+        className="fixed inset-0 pointer-events-none overflow-hidden -z-5"
+        style={{ y: backgroundY }}
+      >
+        <div className="floating-bg absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl"></div>
+        <div className="floating-bg absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full filter blur-3xl" style={{ animationDelay: '2s' }}></div>
+        <div className="floating-bg absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2" style={{ animationDelay: '4s' }}></div>
+      </motion.div>
+
+      {/* 헤더 */}
+      <Header />
+
+      {/* 섹션들 */}
+      <HeroSection 
+        heroScale={heroScale} 
+        heroOpacity={heroOpacity} 
+      />
+      
+      <ProblemsSection 
+        problemScale={problemScale} 
+        problemOpacity={problemOpacity} 
+      />
+      
+      <SolutionSection 
+        solutionScale={solutionScale} 
+        solutionOpacity={solutionOpacity} 
+      />
+      
+      <FeaturesSection 
+        dashboardY={dashboardY} 
+        dashboardScale={dashboardScale} 
+      />
+      
+      <TargetSection />
+      
+      <CTASection />
+
+      {/* 푸터 */}
+      <Footer />
+    </div>
+  );
+}\n\n// ====== src/components/sections/CTASection.tsx ======\n
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import page3 from '@/assets/page3.png';
+
+export default function CTASection() {
+  return (
+    <section id="download" className="min-h-screen flex items-center justify-center relative py-20">
+      <div className="max-w-4xl mx-auto text-center px-6">
+        <motion.div
+          className="glass-effect rounded-3xl p-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="relative inline-block">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold mb-8 relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{
+                background: "linear-gradient(45deg, #60a5fa, #a78bfa, #f472b6)",
+                backgroundSize: "400% 400%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "gradientShift 3s ease-in-out infinite"
+              }}
+            >
+              시장의 &apos;눈치&apos;를 보는 것을 넘어,<br />
+              시장을 이끌어 가세요
+            </motion.h2>
+            
+            <style jsx>{`
+              @keyframes gradientShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+              }
+            `}</style>
+          </div>
+          
+          <motion.p
+            className="text-xl text-slate-300 mb-12 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            지금 바로 &apos;눈칫&apos;을 다운로드하고, 가장 강력한 데이터 파트너와 함께<br />
+            새로운 차원의 투자를 경험하세요.
+          </motion.p>
+
+          {/* 앱 스크린샷 */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative w-full max-w-2xl mx-auto">
+              <Image
+                src={page3}
+                alt="눈칫 앱 스크린샷"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl shadow-2xl"
+                priority
+              />
+              {/* 글로우 효과 */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-xl -z-10"></div>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.button
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-12 py-5 rounded-xl text-xl font-bold shadow-2xl relative overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
+              />
+              📱 App Store에서 다운로드
+            </motion.button>
+            
+            <motion.button
+              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-12 py-5 rounded-xl text-xl font-bold shadow-2xl relative overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+                boxShadow: "0 25px 50px rgba(34, 197, 94, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
+              />
+              🤖 Google Play에서 다운로드
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}\n\n// ====== src/components/sections/TargetSection.tsx ======\n
+'use client';
+import { motion } from 'framer-motion';
+import { TARGET_USERS } from '@/lib/constants';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+};
+
+export default function TargetSection() {
+  return (
+    <section id="target" className="min-h-screen flex items-center justify-center relative py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            이런 분들을 위해 태어났습니다
+          </h2>
+        </motion.div>
+        
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {TARGET_USERS.map((target, index) => (
+            <motion.div
+              key={index}
+              className="text-center glass-effect rounded-2xl p-8 transition-all duration-500"
+              variants={fadeInUp}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)"
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`w-20 h-20 bg-gradient-to-r ${target.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
+                <span className="text-white text-4xl">{target.icon}</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">{target.title}</h3>
+              <p className="text-slate-300">{target.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}\n\n// ====== src/components/sections/SolutionSection.tsx ======\n
+'use client';
+import { motion, MotionValue } from 'framer-motion';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+import app1 from '@/assets/app1.PNG';
+import app2 from '@/assets/app2.PNG';
+import app3 from '@/assets/app3.PNG';
+import app4 from '@/assets/app4.PNG';
+import app5 from '@/assets/app5.PNG';
+import app6 from '@/assets/app6.PNG';
+
+interface SolutionSectionProps {
+  solutionScale: MotionValue<number>;
+  solutionOpacity: MotionValue<number>;
+}
+
+export default function SolutionSection({ solutionScale, solutionOpacity }: SolutionSectionProps) {
+  const appImages = [app1, app2, app3, app4, app5, app6];
+
+  return (
+    <section id="solution" className="min-h-[70vh] flex items-center justify-center relative pt-20 pb-10">
+      <motion.div
+        className="text-center max-w-6xl mx-auto px-6"
+        style={{
+          scale: solutionScale,
+          opacity: solutionOpacity
+        }}
+      >
+        <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto mb-12">
+          {/* 배경 원 */}
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              background: [
+                "linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3))",
+                "linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3))",
+                "linear-gradient(225deg, rgba(236, 72, 153, 0.3), rgba(59, 130, 246, 0.3))"
+              ]
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
+            style={{
+              borderRadius: "50%",
+              filter: "blur(40px)"
+            }}
+          />
+          
+          {/* 회오리 패턴으로 펼쳐지는 앱 스크린샷들 */}
+          {appImages.map((appImage, index) => {
+            // 12시 방향부터 시계방향으로 정돈된 회오리 패턴 (모바일 최적화)
+            const angle = (index * 60 - 90) * Math.PI / 180; // -90도로 12시 방향 시작
+            const baseRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 40 : 70; // 모바일에서 반지름 축소
+            const radiusIncrement = typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 20; // 모바일에서 증가폭 축소
+            const radius = baseRadius + index * radiusIncrement;
+            const spiralX = Math.cos(angle) * radius;
+            const spiralY = Math.sin(angle) * radius;
+            
+            return (
+              <motion.div
+                key={index}
+                className="absolute"
+                initial={{ 
+                  scale: 0,
+                  opacity: 0,
+                  x: 0,
+                  y: 0,
+                  rotate: 0
+                }}
+                whileInView={{
+                  scale: [0, 1.2, 1],
+                  opacity: [0, 0.8, 0.6],
+                  x: spiralX,
+                  y: spiralY,
+                  rotate: index * 10 // 살짝만 회전
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: index * 0.15,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                viewport={{ once: true }}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  marginLeft: '-40px',
+                  marginTop: '-60px'
+                }}
+              >
+                <Image
+                  src={appImage}
+                  alt={`앱 스크린샷 ${index + 1}`}
+                  width={typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 80}
+                  height={typeof window !== 'undefined' && window.innerWidth < 768 ? 90 : 120}
+                  className="rounded-lg shadow-lg opacity-60"
+                />
+              </motion.div>
+            );
+          })}
+          
+          {/* 회전하는 로고 (가장 위에) */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center z-10"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          >
+            <div className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 relative">
+              <Image
+                src={icon}
+                alt="눈칫 로고"
+                fill
+                className="rounded-3xl shadow-2xl object-cover"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) {
+                    target.style.display = 'none';
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="w-full h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-2xl absolute inset-0" style={{display: 'none'}}>
+                <span className="text-white font-bold text-2xl md:text-4xl lg:text-6xl">👁</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
+          모든 것을 <span className="gradient-text">한눈에</span>
+        </h2>
+        
+        <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          24시간 깨어있는 AI가 시장을 감시하고,<br />
+          가장 중요한 순간을 놓치지 않도록 도와드립니다.
+        </p>
+      </motion.div>
+    </section>
+  );
+}\n\n// ====== src/components/sections/ProblemsSection.tsx ======\n
+'use client';
+import { motion, MotionValue } from 'framer-motion';
+import { PROBLEMS } from '@/lib/constants';
+import Image from 'next/image';
+import problem1 from '@/assets/problem1.png';
+import problem2 from '@/assets/problem2.png';
+import problem3 from '@/assets/problem3.png';
+import problem4 from '@/assets/problem4.png';
+import problem5 from '@/assets/problem5.png';
+import problem6 from '@/assets/problem6.png';
+
+interface ProblemsSectionProps {
+  problemScale: MotionValue<number>;
+  problemOpacity: MotionValue<number>;
+}
+
+export default function ProblemsSection({ problemScale, problemOpacity }: ProblemsSectionProps) {
+  return (
+    <section id="problems" className="min-h-screen flex items-center justify-center relative py-20">
+      <div className="text-center max-w-6xl mx-auto px-6">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold text-white mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          기존 투자의 한계
+        </motion.h2>
+
+        <div className="relative w-full h-96">
+          {PROBLEMS.map((problem, index) => {
+            // 이미지 배열
+            const problemImages = [problem1, problem2, problem3, problem4, problem5, problem6];
+            
+            // 웹과 모바일 구분한 정갈한 시작 위치
+            const startPositions = [
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -150 : -300, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? -80 : -150 
+              },  // 왼쪽 위
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 150 : 300, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? -80 : -150 
+              },   // 오른쪽 위
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -180 : -350, 
+                y: 0 
+              },     // 왼쪽 중간
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 350, 
+                y: 0 
+              },      // 오른쪽 중간
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -150 : -300, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? 80 : 150 
+              },   // 왼쪽 아래
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 150 : 300, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? 80 : 150 
+              }     // 오른쪽 아래
+            ];
+
+            // 웹과 모바일 구분한 정갈한 최종 위치
+            const bouncePositions = [
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -100 : -200, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? -60 : -100 
+              },  // 왼쪽 위
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 200, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? -60 : -100 
+              },   // 오른쪽 위
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -120 : -250, 
+                y: 0 
+              },     // 왼쪽 중간
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 120 : 250, 
+                y: 0 
+              },      // 오른쪽 중간
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -100 : -200, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 100 
+              },   // 왼쪽 아래
+              { 
+                x: typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 200, 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 100 
+              }     // 오른쪽 아래
+            ];
+
+            return (
+              <motion.div
+                key={problem}
+                className="absolute"
+                initial={{
+                  x: startPositions[index].x,
+                  y: startPositions[index].y,
+                  opacity: 0.8,
+                  scale: 1.1
+                }}
+                whileInView={{
+                  x: [
+                    startPositions[index].x,  // 시작점
+                    0,                        // 중앙으로 모임
+                    bouncePositions[index].x  // 튕기면서 퍼짐
+                  ],
+                  y: [
+                    startPositions[index].y,  // 시작점
+                    0,                        // 중앙으로 모임
+                    bouncePositions[index].y  // 튕기면서 퍼짐
+                  ],
+                  scale: [1, 0.5, 1.2],       // 작아졌다가 더 크게!
+                  opacity: [0.8, 1, 0.9]      // 투명도 변화
+                }}
+                style={{
+                  left: '45%',  // 50% → 45% (왼쪽으로 20% 이동)
+                  top: '50%',
+                  scale: problemScale,
+                  opacity: problemOpacity
+                }}
+                transition={{
+                  duration: 2,
+                  delay: index * 0.1,
+                  ease: [0.4, 0, 0.2, 1],
+                  times: [0, 0.6, 1]  // 60%까지 모이고, 40%에서 퍼짐
+                }}
+                viewport={{ once: false }}
+              >
+                <div className="relative">
+                  {/* 문제점 이미지 + 제목 오버레이 */}
+                  <div className="relative w-24 h-24 mb-3 mx-auto group">
+                    <Image
+                      src={problemImages[index]}
+                      alt={`문제점 ${index + 1}`}
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover rounded-xl shadow-lg"
+                    />
+                    
+                    {/* 글로우 효과 */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-red-500/30 to-pink-500/30 rounded-xl blur-sm -z-10 opacity-50"></div>
+                  </div>
+                  
+                  {/* 하단 문제점 텍스트 */}
+                  <div className="bg-red-500/20 border border-red-500/30 rounded-lg px-3 py-1 text-red-200 text-xs shadow-lg">
+                    {problem}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}\n\n// ====== src/components/sections/HeroSection.tsx ======\n
+'use client';
+import { motion, useSpring, MotionValue } from 'framer-motion';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+import page4 from '@/assets/page4.png';
+import { CRYPTO_COINS } from '@/lib/constants';
+
+interface HeroSectionProps {
+  heroScale: MotionValue<number>;
+  heroOpacity: MotionValue<number>;
+}
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+};
+
+export default function HeroSection({ heroScale, heroOpacity }: HeroSectionProps) {
+  const smoothScale = useSpring(heroScale, { stiffness: 300, damping: 30 });
+
+  return (
+    <motion.section 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      style={{ 
+        scale: smoothScale,
+        opacity: heroOpacity 
+      }}
+    >
+      {/* 썌끈한 백그라운드 이미지 */}
+      <motion.div
+        className="absolute right-16 top-1/2 transform -translate-y-1/2 pointer-events-none hidden lg:block"
+        initial={{ opacity: 0, x: 100, scale: 0.9 }}
+        animate={{ opacity: 0.6, x: 0, scale: 1 }}
+        transition={{ 
+          duration: 1.5, 
+          delay: 0.4,
+          ease: [0.25, 0.1, 0.25, 1]
+        }}
+      >
+        {/* 플로팅 애니메이션 래퍼 */}
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 2, -2, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="relative"
+        >
+          {/* 메인 이미지 */}
+          <Image
+            src={page4}
+            alt="눈칫 앱 백그라운드"
+            width={500}
+            height={620}
+            className="rounded-3xl shadow-2xl"
+            priority
+          />
+          
+          {/* 다중 글로우 효과 */}
+          <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-pink-500/40 rounded-3xl blur-3xl -z-10"></div>
+          <div className="absolute -inset-6 bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-3xl blur-2xl -z-10"></div>
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-300/20 via-purple-300/20 to-pink-300/20 rounded-3xl blur-xl -z-10"></div>
+          
+          {/* 펄스 효과 */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl"
+            animate={{
+              opacity: [0.1, 0.3, 0.1],
+              scale: [1, 1.02, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* 회전하는 액센트들 */}
+          <motion.div
+            className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-sm"
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.3, 1],
+              opacity: [0.6, 0.9, 0.6]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full blur-sm"
+            animate={{
+              rotate: [360, 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.5, 0.8, 0.5]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* 기존 중앙 정렬 텍스트 */}
+      <div className="text-center z-10 max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <div className="flex items-center justify-center mb-8">
+            <motion.div 
+              className="w-16 h-16 relative"
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              <Image 
+                src={icon} 
+                alt="눈칫 로고" 
+                width={64} 
+                height={64}
+                className="rounded-2xl shadow-2xl"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) {
+                    target.style.display = 'none';
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl" style={{display: 'none'}}>
+                <span className="text-white font-bold text-3xl">👁</span>
+              </div>
+            </motion.div>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            시장은 잠들지 않습니다.<br />
+            <span className="gradient-text text-3xl md:text-5xl lg:text-6xl">
+              <span className="block sm:inline">당신의 결정적인 순간도</span>{' '}
+              <span className="block sm:inline">마찬가지입니다.</span>
+            </span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            혼란스러운 암호화폐 시장에서 가장 중요한 순간을 놓치고 계신가요?
+          </p>
+          
+          <div className="text-xl md:text-2xl font-semibold text-white mb-12">
+            이제 <span className="gradient-text font-bold">눈칫(Noonchit)</span>과 함께하세요.
+          </div>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.button 
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-10 py-4 rounded-xl text-lg font-bold shadow-2xl"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              지금 바로 다운로드
+            </motion.button>
+            <motion.button 
+              className="glass-effect text-white px-10 py-4 rounded-xl text-lg font-semibold"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              데모 체험하기
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* 떠다니는 크립토 로고들 */}
+      {CRYPTO_COINS.map((crypto, index) => (
+        <motion.div
+          key={crypto.name}
+          className="absolute crypto-float"
+          style={{
+            left: `${15 + (index * 12)}%`,
+            top: `${20 + (index % 3) * 20}%`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, -10, 0],
+          }}
+          transition={{
+            duration: 4 + index,
+            repeat: Infinity,
+            delay: index * 0.5
+          }}
+        >
+          <div className={`w-16 h-16 bg-gradient-to-r ${crypto.color} rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-xl opacity-30`}>
+            {crypto.symbol}
+          </div>
+        </motion.div>
+      ))}
+    </motion.section>
+  );
+}\n\n// ====== src/components/sections/FeaturesSection.tsx ======\n
+'use client';
+import { motion, MotionValue } from 'framer-motion';
+import { DASHBOARD_FEATURES, MAIN_FEATURES } from '@/lib/constants';
+
+interface FeaturesSectionProps {
+  dashboardY: MotionValue<string>;
+  dashboardScale: MotionValue<number>;
+}
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+};
+
+export default function FeaturesSection({ dashboardY, dashboardScale }: FeaturesSectionProps) {
+  return (
+    <section id="features" className="min-h-screen flex items-center justify-center relative py-20">
+      <motion.div 
+        className="w-full max-w-7xl mx-auto px-6"
+        style={{
+          y: dashboardY,
+          scale: dashboardScale
+        }}
+      >
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            주요 기능
+          </h2>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            시장의 &apos;눈치&apos;를 보는 것을 넘어, 시장을 이끌어 가세요
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="glass-effect rounded-3xl p-8 shadow-2xl mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false }}
+        >
+          <div className="grid lg:grid-cols-3 gap-8 mb-8">
+            {DASHBOARD_FEATURES.map((item, index) => (
+              <motion.div
+                key={index}
+                className="glass-effect rounded-xl p-6 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                viewport={{ once: false }}
+              >
+                <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center mb-4 text-2xl`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl font-bold text-white">{item.value}</span>
+                  <span className="text-green-400 font-semibold">{item.change}</span>
+                </div>
+                
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50">
+                  <motion.div
+                    className="w-full h-full bg-gradient-to-r from-blue-400 to-purple-400"
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: index * 0.3
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="glass-effect rounded-xl p-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: false }}
+          >
+            <h3 className="text-xl font-semibold text-white mb-4">실시간 시장 동향</h3>
+            <div className="h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg flex items-center justify-center relative overflow-hidden">
+              <div className="text-slate-400 text-lg">Live Chart Simulation</div>
+              
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 bg-gradient-to-t from-blue-500 to-purple-500 rounded-full"
+                  style={{
+                    left: `${20 + i * 15}%`,
+                    bottom: '20%'
+                  }}
+                  animate={{
+                    height: [`${30 + Math.random() * 40}%`, `${20 + Math.random() * 50}%`]
+                  }}
+                  transition={{
+                    duration: 2 + Math.random() * 2,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* 상세 기능 설명 */}
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {MAIN_FEATURES.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="glass-effect rounded-2xl p-8 transition-all duration-500"
+              variants={fadeInUp}
+              whileHover={{
+                y: -12,
+                scale: 1.02,
+                boxShadow: "0 30px 60px rgba(59, 130, 246, 0.3)"
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6`}>
+                <span className="text-white text-3xl">{feature.icon}</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
+              <p className="text-slate-300 leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}\n\n// ====== src/components/Sections.tsx ======\n
+\n\n// ====== src/components/Footer.tsx ======\n
+// components/Footer.tsx
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+
+export default function Footer() {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const footerSections = [
+    {
+      title: "서비스",
+      links: ["실시간 고래 추적", "급등락 알림", "거래량 분석", "API 서비스"]
+    },
+    {
+      title: "지원",
+      links: ["사용 가이드", "고객 지원", "FAQ", "개발자 문서"]
+    },
+    {
+      title: "커뮤니티",
+      links: ["트위터", "텔레그램", "디스코드", "유튜브"]
+    }
+  ];
+
+  return (
+    <motion.footer 
+      className="relative z-10 px-6 py-16 border-t border-slate-800"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          className="grid md:grid-cols-4 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={fadeInUp}>
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <Image 
+                  src={icon} 
+                  alt="눈칫 로고" 
+                  width={40} 
+                  height={40}
+                  className="rounded-xl"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) {
+                      target.style.display = 'none';
+                      fallback.style.display = 'flex';
+                    }
+                  }}
+                />
+                <span className="text-white font-bold text-xl" style={{display: 'none'}}>👁</span>
+              </div>
+              <div>
+                <span className="text-white text-xl font-bold">눈칫</span>
+                <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+              </div>
+            </div>
+            <p className="text-slate-400 leading-relaxed">
+              24시간 시장을 감시하는<br />
+              강력한 데이터 트레이딩 파트너
+            </p>
+          </motion.div>
+          
+          {footerSections.map((section) => (
+            <motion.div key={section.title} variants={fadeInUp}>
+              <h4 className="text-white font-semibold mb-4">{section.title}</h4>
+              <ul className="space-y-3 text-slate-400">
+                {section.links.map((link) => (
+                  <motion.li key={link} whileHover={{ x: 5 }}>
+                    <a href="#" className="hover:text-white transition-colors">{link}</a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        <motion.div 
+          className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <p className="mb-2">&copy; 2025 Noonchit. All rights reserved.</p>
+          <div className="flex justify-center items-center space-x-4 text-sm">
+            <motion.a 
+              href="/terms" 
+              className="hover:text-white transition-colors"
+              whileHover={{ y: -1 }}
+            >
+              서비스 이용약관
+            </motion.a>
+            <span>|</span>
+            <motion.a 
+              href="/privacy" 
+              className="hover:text-white transition-colors"
+              whileHover={{ y: -1 }}
+            >
+              개인정보 처리방침
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
+    </motion.footer>
+  );
+}\n\n// ====== src/components/Header.tsx ======\n
+// components/Header.tsx
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import icon from '@/assets/icon.png';
+
+export default function Header() {
+  const navigationItems = [
+    { name: '문제점', href: '#problems' },
+    { name: '솔루션', href: '#solution' },
+    { name: '주요 기능', href: '#features' },
+    { name: '타겟 사용자', href: '#target' },
+    { name: '다운로드', href: '#download' }
+  ];
+
+  return (
+    <motion.header 
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass-effect"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <nav className="max-w-7xl mx-auto flex items-center justify-between">
+        <motion.div 
+          className="flex items-center space-x-3"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div className="relative">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <Image 
+                src={icon} 
+                alt="눈칫 로고" 
+                width={40} 
+                height={40}
+                className="rounded-xl"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) {
+                    target.style.display = 'none';
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <span className="text-white font-bold text-xl" style={{display: 'none'}}>👁</span>
+            </div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl blur opacity-30"></div>
+          </div>
+          <div>
+            <span className="text-white text-2xl font-bold">눈칫</span>
+            <span className="text-slate-400 text-sm ml-2">Noonchit</span>
+          </div>
+        </motion.div>
+        
+        <div className="hidden md:flex items-center space-x-8">
+          {navigationItems.map((item, index) => (
+            <motion.a
+              key={item.name}
+              href={item.href}
+              className="text-slate-300 hover:text-white transition-colors duration-300"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              whileHover={{ y: -2 }}
+            >
+              {item.name}
+            </motion.a>
+          ))}
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <motion.button 
+            className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            App Store
+          </motion.button>
+        </div>
+      </nav>
+    </motion.header>
+  );
+}
